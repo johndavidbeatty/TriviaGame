@@ -1,0 +1,33 @@
+
+.choices {
+ white-space: pre;
+}
+
+button,
+div,
+form,
+input
+start {
+  margin: 10px;
+  font-size: larger;
+}
+.jumbotron {
+align-self: center;
+background-color: rgb(214, 238, 214);
+}
+.choices {
+width: 90%;
+text-align: left;
+font-size: large;
+
+}
+.start,restart {
+
+border-style: solid;
+border-width: 3px;
+border-color: lightgrey;
+background-color: green;
+color: white;
+font-weight: 250;
+
+}
