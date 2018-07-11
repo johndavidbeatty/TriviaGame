@@ -15,7 +15,9 @@ $(document).ready(function () {
   var responsePic = $("<img>");
   var questionDisplay = $("<p>");
   var timeDisplay = $("#timer");
+  var timercount = 0;
   var answerSpot;
+  var running=false;
 
   var data = [["General Computer Industry Trivia", "./assets/images/circuit-board-background.jpg"],
   ["The first computer ever made was the….?", "ENIAC (1946)", "MARVIN (1932)", "WOPER (1986)","HAL(2000)",1, "./assets/images/ENIAC.jpg"],
@@ -54,7 +56,6 @@ $(document).ready(function () {
 
     $(".choices").on("click", function (event) {
       event.preventDefault();
-      console.log("click");
 
       // check to stop multiple button clicks (could add rights/wrongs to game)
       if (answered) {
@@ -103,7 +104,13 @@ $(document).ready(function () {
     $("#question").append(questionDisplay);
     answered = false;
     answerSpot=data[questionNum].length-2
+    if (!running){
     timer = setInterval(clock, 1000);
+    timercount++;
+    running=true;
+    console.log("timer fired, timer count: ", timercount);
+    }
+
 
 
     $("#choices").empty();
@@ -141,6 +148,8 @@ $(document).ready(function () {
 
   function scoreBoard() {
     clearInterval(timer);
+    running=false;
+    console.log("time cleared, timer count: ",timercount);
     $("#scoreBoard").empty();
     score = $("<h2>");
     score = ("Right Answers: " + right + ", Wrong Answers: " + wrong + ", Questions remaining: " + (data.length-(questionNum)));
@@ -154,7 +163,7 @@ $(document).ready(function () {
     questionNum++;
     setTimeout(question, 3000);
   };
-
+`12  `
   function restart() {
 
     var restartBut = $("<button>");
@@ -191,63 +200,6 @@ $(document).ready(function () {
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
